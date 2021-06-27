@@ -1,0 +1,392 @@
+03-21 19:41:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Connection is broken: "session closed" [90067-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+	at com.timkoop.timetracker.DB.query(DB.java:110)
+	at com.timkoop.timetracker.DB.getData(DB.java:34)
+	at com.timkoop.timetracker.DB.getFirst(DB.java:49)
+	at com.timkoop.timetracker.Main$3.run(Main.java:71)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+03-21 20:06:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Connection is broken: "session closed" [90067-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+	at com.timkoop.timetracker.DB.query(DB.java:110)
+	at com.timkoop.timetracker.DB.getData(DB.java:34)
+	at com.timkoop.timetracker.DB.getFirst(DB.java:49)
+	at com.timkoop.timetracker.Main$3.run(Main.java:71)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+03-21 20:08:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Connection is broken: "session closed" [90067-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.engine.Session.prepareLocal(Session.java:420)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+	at com.timkoop.timetracker.DB.query(DB.java:110)
+	at com.timkoop.timetracker.DB.getData(DB.java:34)
+	at com.timkoop.timetracker.DB.getFirst(DB.java:49)
+	at com.timkoop.timetracker.Main$2.run(Main.java:40)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+03-23 18:19:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT P.COLOUR, P.NAME, 
+				COALESCE(SUM(DATEDIFF('SECOND', START_TIME, COALESCE(END_TIME, CURRENT_TIMESTAMP))), 0) AS TOTAL, 
+				P.PROJECT_ID, P.THE_ORDER 
+				FROM PROJECT P 
+				LEFT OUTER JOIN WORK W 
+				ON P.PROJECT_ID = W.PROJECT_ID 
+				WHERE 
+				GROUP[*] BY P.PROJECT_ID, P.NAME, P.THE_ORDER, P.COLOUR 
+				ORDER BY P.THE_ORDER "; expected "NOT, EXISTS, INTERSECTS, SELECT, FROM"; SQL statement:
+select p.colour, p.name, 
+				coalesce(sum(datediff('SECOND', start_time, coalesce(end_time, current_timestamp))), 0) as total, 
+				p.project_id, p.the_order 
+				from project p 
+				left outer join work w 
+				on p.project_id = w.project_id 
+				where 
+				group by p.project_id, p.name, p.the_order, p.colour 
+				order by p.the_order [42001-176]
+03-23 18:20:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "P.THE_DATE" not found; SQL statement:
+select p.colour, p.name, 
+				coalesce(sum(datediff('SECOND', start_time, coalesce(end_time, current_timestamp))), 0) as total, 
+				p.project_id, p.the_order, p.the_date 
+				from project p 
+				left outer join work w 
+				on p.project_id = w.project_id 
+				where (w.the_date = current_date or w.the_date is null) 
+				group by p.project_id, p.name, p.the_order, p.colour 
+				order by p.the_order [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:148)
+	at org.h2.command.dml.Select.prepare(Select.java:831)
+	at org.h2.command.Parser.prepareCommand(Parser.java:248)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+	at com.timkoop.timetracker.DB.query(DB.java:110)
+	at com.timkoop.timetracker.tabs.SQLTab.querySQL(SQLTab.java:67)
+	at com.timkoop.timetracker.tabs.SQLTab.access$2(SQLTab.java:65)
+	at com.timkoop.timetracker.tabs.SQLTab$2.actionPerformed(SQLTab.java:58)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6525)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6290)
+	at java.awt.Container.processEvent(Container.java:2234)
+	at java.awt.Component.dispatchEventImpl(Component.java:4881)
+	at java.awt.Container.dispatchEventImpl(Container.java:2292)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
+	at java.awt.Container.dispatchEventImpl(Container.java:2278)
+	at java.awt.Window.dispatchEventImpl(Window.java:2750)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:751)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:702)
+	at java.awt.EventQueue$3.run(EventQueue.java:696)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:724)
+	at java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:721)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+03-23 18:26:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "W.THE_DATE" not found; SQL statement:
+CREATE FORCE VIEW PUBLIC._0 AS
+SELECT
+    P.COLOUR,
+    P.NAME,
+    P.PROJECT_ID,
+    P.THE_ORDER,
+    W.THE_DATE
+FROM PUBLIC.PROJECT P [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:148)
+	at org.h2.command.dml.Select.prepare(Select.java:831)
+	at org.h2.command.Parser.prepare(Parser.java:228)
+	at org.h2.engine.Session.prepare(Session.java:408)
+	at org.h2.engine.Session.prepare(Session.java:395)
+	at org.h2.table.TableView.compileViewQuery(TableView.java:110)
+	at org.h2.table.TableView.initColumnsAndTables(TableView.java:155)
+	at org.h2.table.TableView.init(TableView.java:106)
+	at org.h2.table.TableView.<init>(TableView.java:71)
+	at org.h2.table.TableView.createTempView(TableView.java:483)
+	at org.h2.command.Parser.readTableFilter(Parser.java:1163)
+	at org.h2.command.Parser.parseSelectSimpleFromPart(Parser.java:1859)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:1968)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:1853)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1674)
+	at org.h2.command.Parser.parseSelect(Parser.java:1662)
+	at org.h2.command.Parser.parsePrepared(Parser.java:434)
+	at org.h2.command.Parser.parse(Parser.java:306)
+	at org.h2.command.Parser.parse(Parser.java:278)
+	at org.h2.command.Parser.prepareCommand(Parser.java:243)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+	at com.timkoop.timetracker.DB.query(DB.java:110)
+	at com.timkoop.timetracker.tabs.SQLTab.querySQL(SQLTab.java:67)
+	at com.timkoop.timetracker.tabs.SQLTab.access$2(SQLTab.java:65)
+	at com.timkoop.timetracker.tabs.SQLTab$2.actionPerformed(SQLTab.java:58)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6525)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6290)
+	at java.awt.Container.processEvent(Container.java:2234)
+	at java.awt.Component.dispatchEventImpl(Component.java:4881)
+	at java.awt.Container.dispatchEventImpl(Container.java:2292)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
+	at java.awt.Container.dispatchEventImpl(Container.java:2278)
+	at java.awt.Window.dispatchEventImpl(Window.java:2750)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:751)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:702)
+	at java.awt.EventQueue$3.run(EventQueue.java:696)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:724)
+	at java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:721)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+03-23 18:27:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT PR.*, WO.TOTAL FROM (
+SELECT P.COLOUR, P.NAME, P.PROJECT_ID, P.THE_ORDER 
+FROM PROJECT P ) PR INNER JOIN (
+SELECT COALESCE(SUM(DATEDIFF('SECOND', START_TIME, COALESCE(END_TIME, CURRENT_TIMESTAMP))), 0) AS TOTAL, 
+FROM WORK WHERE[*] THE_DATE = CURRENT_DATE GROUP BY PROJECT_ID
+) WO ON PR.PROJECT_ID = WO.PROJECT_ID
+GROUP BY PR.THE_ORDER
+ "; expected "., (, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select pr.*, wo.total from (
+select p.colour, p.name, p.project_id, p.the_order 
+from project p ) pr inner join (
+select coalesce(sum(datediff('SECOND', start_time, coalesce(end_time, current_timestamp))), 0) as total, 
+from work where the_date = current_date group by project_id
+) wo on pr.project_id = wo.project_id
+group by pr.the_order
+ [42001-176]
+03-23 18:28:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT PR.*, WO.TOTAL FROM 
+(
+SELECT COLOUR, NAME, PROJECT_ID, THE_ORDER 
+FROM PROJECT 
+) PR INNER JOIN 
+(
+SELECT COALESCE(SUM(DATEDIFF('SECOND', START_TIME, COALESCE(END_TIME, CURRENT_TIMESTAMP))), 0) AS TOTAL, 
+FROM WORK WHERE[*] THE_DATE = CURRENT_DATE GROUP BY PROJECT_ID
+) WO 
+ON PR.PROJECT_ID = WO.PROJECT_ID
+GROUP BY PR.THE_ORDER
+ "; expected "., (, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select pr.*, wo.total from 
+(
+select colour, name, project_id, the_order 
+from project 
+) pr inner join 
+(
+select coalesce(sum(datediff('SECOND', start_time, coalesce(end_time, current_timestamp))), 0) as total, 
+from work where the_date = current_date group by project_id
+) wo 
+on pr.project_id = wo.project_id
+group by pr.the_order
+ [42001-176]
+03-23 18:29:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT PR.COLOUR, WO.TOTAL FROM 
+(
+SELECT COLOUR, NAME, PROJECT_ID, THE_ORDER 
+FROM PROJECT 
+) PR INNER JOIN 
+(
+SELECT COALESCE(SUM(DATEDIFF('SECOND', START_TIME, COALESCE(END_TIME, CURRENT_TIMESTAMP))), 0) AS TOTAL, 
+FROM WORK WHERE[*] THE_DATE = CURRENT_DATE GROUP BY PROJECT_ID
+) WO 
+ON PR.PROJECT_ID = WO.PROJECT_ID
+GROUP BY PR.THE_ORDER
+ "; expected "., (, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select pr.colour, wo.total from 
+(
+select colour, name, project_id, the_order 
+from project 
+) pr inner join 
+(
+select coalesce(sum(datediff('SECOND', start_time, coalesce(end_time, current_timestamp))), 0) as total, 
+from work where the_date = current_date group by project_id
+) wo 
+on pr.project_id = wo.project_id
+group by pr.the_order
+ [42001-176]
+03-23 18:35:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM 
+(
+SELECT COLOUR, NAME, PROJECT_ID, THE_ORDER 
+FROM PROJECT 
+) PR INNER JOIN 
+(
+SELECT COALESCE(SUM(DATEDIFF('SECOND', START_TIME, COALESCE(END_TIME, CURRENT_TIMESTAMP))), 0) AS TOTAL, 
+FROM WORK WHERE[*] THE_DATE = CURRENT_DATE GROUP BY PROJECT_ID
+) WO 
+ON PR.PROJECT_ID = WO.PROJECT_ID
+GROUP BY PR.THE_ORDER
+ "; expected "., (, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select * from 
+(
+select colour, name, project_id, the_order 
+from project 
+) pr inner join 
+(
+select coalesce(sum(datediff('SECOND', start_time, coalesce(end_time, current_timestamp))), 0) as total, 
+from work where the_date = current_date group by project_id
+) wo 
+on pr.project_id = wo.project_id
+group by pr.the_order
+ [42001-176]
+03-23 18:35:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "WO.PROJECT_ID" not found; SQL statement:
+select * from 
+(
+select colour, name, project_id, the_order 
+from project 
+) pr inner join 
+(
+select coalesce(sum(datediff('SECOND', start_time, coalesce(end_time, current_timestamp))), 0) as total
+from work where the_date = current_date group by project_id
+) wo 
+on pr.project_id = wo.project_id
+group by pr.the_order
+ [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:148)
+	at org.h2.expression.Comparison.optimize(Comparison.java:181)
+	at org.h2.command.dml.Select.prepare(Select.java:834)
+	at org.h2.command.Parser.prepareCommand(Parser.java:248)
+	at org.h2.engine.Session.prepareLocal(Session.java:442)
+	at org.h2.engine.Session.prepareCommand(Session.java:384)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1188)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:276)
+	at com.timkoop.timetracker.DB.query(DB.java:110)
+	at com.timkoop.timetracker.tabs.SQLTab.querySQL(SQLTab.java:67)
+	at com.timkoop.timetracker.tabs.SQLTab.access$2(SQLTab.java:65)
+	at com.timkoop.timetracker.tabs.SQLTab$2.actionPerformed(SQLTab.java:58)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6525)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6290)
+	at java.awt.Container.processEvent(Container.java:2234)
+	at java.awt.Component.dispatchEventImpl(Component.java:4881)
+	at java.awt.Container.dispatchEventImpl(Container.java:2292)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
+	at java.awt.Container.dispatchEventImpl(Container.java:2278)
+	at java.awt.Window.dispatchEventImpl(Window.java:2750)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:751)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:702)
+	at java.awt.EventQueue$3.run(EventQueue.java:696)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:724)
+	at java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:721)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+03-23 18:36:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM 
+(
+SELECT COLOUR, NAME, PROJECT_ID, THE_ORDER 
+FROM PROJECT 
+) PR LEFT OUTER JOIN (
+SELECT 
+PROJECT_ID, 
+COALESCE(SUM(DATEDIFF('SECOND', START_TIME, COALESCE(END_TIME, CURRENT_TIMESTAMP))), 0) AS TOTAL
+FROM WORK WHERE THE_DATE = CURRENT_DATE GROUP BY PROJECT_ID
+) WO 
+ON PR.PROJECT_ID = WO.PROJECT_ID
+GROUP BY PR.THE_ORDER DESC[*]
+ "; SQL statement:
+select * from 
+(
+select colour, name, project_id, the_order 
+from project 
+) pr left outer join (
+select 
+project_id, 
+coalesce(sum(datediff('SECOND', start_time, coalesce(end_time, current_timestamp))), 0) as total
+from work where the_date = current_date group by project_id
+) wo 
+on pr.project_id = wo.project_id
+group by pr.the_order desc
+ [42000-176]
